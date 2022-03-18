@@ -1,0 +1,25 @@
+<RCC>
+  <qresource prefix="my_icons">
+    <file>icons/socialIcons/codeforces.png</file>
+    <file>icons/socialIcons/facebook.png</file>
+    <file>icons/socialIcons/github.png</file>
+    <file>icons/socialIcons/gmail.png</file>
+    <file>icons/socialIcons/hackerrannk.png</file>
+    <file>icons/socialIcons/linkedin.png</file>
+    <file>icons/socialIcons/medium.png</file>
+    <file>icons/socialIcons/outlook.png</file>
+    <file>icons/socialIcons/quora.png</file>
+    <file>icons/socialIcons/twitter.png</file>
+    <file>icons/socialIcons/udacity.png</file>
+    <file>icons/socialIcons/udemy.png</file>
+    <file>icons/socialIcons/university.png</file>
+    <file>icons/socialIcons/wordpress.png</file>
+    <file>icons/edit_user.png</file>
+    <file>icons/exit_app.png</file>
+    <file>icons/home.png</file>
+    <file>icons/users.png</file>
+    <file>icons/homeph.jpg</file>
+    <file>icons/edit_user.png</file>
+    <file>icons/password.png</file>
+  </qresource>
+</RCC>

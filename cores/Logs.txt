@@ -1,0 +1,19 @@
+[+] User: 0xGhazy --- Time: 2022-03-18 14:12:53.947771 --- Event: Log file was created
+[+] User: 0xGhazy --- Time: 2022-03-18 15:05:20.606657 --- Event: (('hossam', 'testme@kali.com', 'gAAAAABiNIOh_J2vymWFmxJPcZZBKhCJkB7-6t1FHPQXWyEW5HcBBt2ZSBy8hbPmXFfbnSWsD5qO08_QWW7mX_JwKOWRlAe-hA==')) account was added!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:08:50.719379 --- Event: (('hossam', 'testme@kali.com', 'gAAAAABiNIR12Uv6AeVZMl9OQ3dwDIJh60__9UYwn6Ta112kkePayJYatG5JMMs1HAXnHPuyjosgjO4l01WnwVZXNuZ5sWf1xQ==')) account was added!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:08:50.719379 --- Event: (('facebook', 'root@kali.com', 'gAAAAABiNISAIighNUloGbLELrnGQ5_UHyD7lA7__ZOta1S7gFxX7C3SjtufMvqmMI7R151JkH1wdpTqlmjnUlbbmJovP_l-lw==')) account was added!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:08:50.719379 --- Event: (('udemy', 'root@kali.com', 'gAAAAABiNISIpzow4LKjgYuqlCPO2l3-3jAQP_XqVC2eAENMr5Zykbt-zFGZTLzSsQ7i04Iy53kCrfYt-IrnNrYvOe5oqnmO3Q==')) account was added!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:08:50.719379 --- Event: (['2', 'root@kali.com']) has been moved to the clipboard
+[+] User: 0xGhazy --- Time: 2022-03-18 15:08:50.719379 --- Event: (1) account was deleted!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:08:50.719379 --- Event: ((2, 'facebook', 'root@kali.com')) Was selected!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:08:50.719379 --- Event: (2) account was deleted!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:08:50.719379 --- Event: ((3, 'udemy', 'root@kali.com')) Was selected!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:08:50.719379 --- Event: (3) account was deleted!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:11:30.409774 --- Event: (('facebook', 'test@kali.com', 'gAAAAABiNIUUcqXcscm2OBRqRXGI7-hT3k4VwoPiO-LXEEvVOQaKxJSg4VGaikYMunFUo6xdI5zLD9gqyTY9NiXovT_phxcddw==')) account was added!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:11:30.409774 --- Event: (('twitter', 'test@kali.com', 'gAAAAABiNIUcjo0O3uEJYZpFNk1naiRxFq8Xzks5Na7TBy_Dd3CuI-QuTAA-uyMzJY0lS5SdUhb5aFlLwNGyaFE6jJMe1Y5BzQ==')) account was added!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:11:30.409774 --- Event: (('udemy', 'test@kali.com', 'gAAAAABiNIUgnkdjq_PqXYXQMcvuTZDJU6Uz2N2GGvXznyfhy6ZzxOXkkMOyW_Q5rLgMj0EBBSt99FgzTwPt-PAPPpGeeHg0Rg==')) account was added!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:11:30.409774 --- Event: (['1', 'test@kali.com']) has been moved to the clipboard
+[+] User: 0xGhazy --- Time: 2022-03-18 15:11:30.409774 --- Event: ((2, 'twitter', 'test@kali.com')) Was selected!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:11:30.409774 --- Event: (('twitter', 'test@kali.com', 'gAAAAABiNIVCHjTn5wxRjd9Mv3tDzf70qagCrZW6Aq-RB8tH3ZhQFu-Knl2vqzWy3St00ZNdtQq7npCvRntnHZB4Ps4N1aszLw==')) account was updated!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:11:30.409774 --- Event: ((2, 'twitter', 'test@kali.com')) Was selected!
+[+] User: 0xGhazy --- Time: 2022-03-18 15:11:30.409774 --- Event: (2) account was deleted!
