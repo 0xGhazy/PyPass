@@ -1,0 +1,4 @@
+cryptography
+win10toast
+PyQt5
+pyperclip
