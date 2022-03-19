@@ -27,3 +27,4 @@ kali@kali~$ python3 PyPass.pyw
 - [ ] Adding authentication window when starting the application
 - [ ] Prevent data duplication in the database
 - [ ] Adding dark mode button
+- [ ] Creating formative documentation (issue by @GAbdulWahab)
