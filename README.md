@@ -34,8 +34,4 @@ Read the [Documentation](https://github.com/0xGhazy/PyPass-Project/documentation
 - [ ] Adding authentication window when starting the application
 - [ ] Prevent data duplication in the database
 - [ ] Adding dark mode button
-<<<<<<< HEAD
 - [ ] Creatign Google Chrome Extension
-=======
-- [ ] Creating formative documentation (issue by @GAbdulWahab)
->>>>>>> b2aa7360504621272b538ae66e98ead35d52e857
