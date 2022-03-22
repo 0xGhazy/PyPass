@@ -646,7 +646,7 @@ QPushButton:active {
        <set>Qt::AlignCenter</set>
       </property>
       <property name="placeholderText">
-       <string>Platform Name</string>
+       <string>Account ID</string>
       </property>
      </widget>
      <widget class="QPushButton" name="select_by_id">
