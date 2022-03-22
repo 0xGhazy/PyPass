@@ -23,12 +23,12 @@ c:\> python setup.py
 ## 3. Running the application :)
 
 # How to use it?
-Read the [Documentation](https://github.com/0xGhazy/PyPass-Project/documentation.md)
+Read the [Documentation](https://github.com/0xGhazy/PyPass-Project/blob/main/DOCUMENTATION.md)
 
 
 # Important links
-- [Project Documentation](https://github.com/0xGhazy/PyPass-Project/documentation.md)
-- [How to contribute?]()
+- [Project Documentation](https://github.com/0xGhazy/PyPass-Project/blob/main/DOCUMENTATION.md)
+- [How to contribute?](https://github.com/0xGhazy/PyPass-Project/blob/main/contributor-guide.md)
 
 # To-do
 - [ ] Adding authentication window when starting the application
