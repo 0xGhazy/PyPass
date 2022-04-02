@@ -29,9 +29,3 @@ Read the [Documentation](https://github.com/0xGhazy/PyPass-Project/blob/main/DOC
 # Important links
 - [Project Documentation](https://github.com/0xGhazy/PyPass-Project/blob/main/DOCUMENTATION.md)
 - [How to contribute?](https://github.com/0xGhazy/PyPass-Project/blob/main/contributor-guide.md)
-
-# To-do
-- [ ] Adding authentication window when starting the application
-- [ ] Prevent data duplication in the database
-- [ ] Adding dark mode button
-- [ ] Creatign Google Chrome Extension
