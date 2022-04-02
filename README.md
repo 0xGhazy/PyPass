@@ -7,7 +7,7 @@ and save them encrypted in one place, Which you can easily and safely access the
 
 ## 1. clone the project from github
 ```powershell
-git clone https://github.com/0xGhazy/PyPass-Project
+git clone https://github.com/0xGhazy/PyPass
 ```
 
 ## 2. Running setup.py script
