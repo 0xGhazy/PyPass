@@ -1,5 +1,7 @@
 import os
 import sys
+import getpass
+from cores.database_api import Database
 from platform import platform
 
 def check_python_version():
@@ -20,6 +22,18 @@ def install_reqs():
         os.system("clear")
     print("\n Requirements installed successfully \n")
 
+def user_account_setup():
+    # create database object
+    db_obj = Database()
+    # use existing username from os as Account Username
+    user_name = os.getlogin()
+    print("Your user name is:\n" + user_name)
+
+    # allow user to create a unique Account Password
+    print("*** Create an account password *** \n")
+    user_pass = getpass.getpass()
+    db_obj.db_query("PyPassdb.sqlite3", f"INSERT INTO Users (User_name, User_pass) VALUES ('{user_name}', '{user_pass}');")
+    print("User Account Created!")
 
 if __name__ == '__main__':
     # change cwd to the setup.py script directory
@@ -27,6 +41,7 @@ if __name__ == '__main__':
     if check_python_version():
         try:
             install_reqs()
+            user_account_setup()
         except Exception as error_message:
             print(f"[-] Error Massage:\n{error_message}\n")
     else:
