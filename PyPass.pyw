@@ -1,6 +1,3 @@
-# PyPass is an open source password manager project
-# coded in Python3 by Hossam hamdy.
-
 import os
 import sys
 from PyQt5.QtGui import *
@@ -9,10 +6,8 @@ from PyQt5 import QtWidgets, uic, QtGui
 from cores.logsystem import LogSystem
 from cores.encryption import Security
 from cores.database_api import Database
-from cores.notifications import add_notification, del_notification, edit_notification, copy_notification
+from cores.login_screen_handler import LoginScreen
 import pyperclip
-from threading import Thread
-
 
 # change this when you wanna add new platform, append it in lower case :)
 SUPPORTED_PLATFORMS = ["facebook", "codeforces", "github",
@@ -23,11 +18,11 @@ SUPPORTED_PLATFORMS = ["facebook", "codeforces", "github",
 DB_NAME = "PyPassdb.sqlite3"
 
 
-class PyPassProject(QtWidgets.QMainWindow):
+class PyPass(QtWidgets.QMainWindow):
 
 
-    def __init__(self: "PyPassProject") -> None:
-        super(PyPassProject, self).__init__()
+    def __init__(self) -> None:
+        super(PyPass, self).__init__()
         os.chdir(os.path.dirname(__file__))
         # loading .ui design file.
         uic.loadUi(r"ui\mainUI.ui", self) 
@@ -35,17 +30,22 @@ class PyPassProject(QtWidgets.QMainWindow):
         self.tabWidgets = self.findChild(QtWidgets.QTabWidget, 'tabWidget')
         self.tabWidgets.tabBar().setVisible(False)
         # Application Data
-        self.database_obj = Database()
-        self.security_obj = Security()
-        self.log_obj = LogSystem()
-        # Starter methods
-        self.display_accounts_list()
-        self.display_accounts_to_edit()
-        self.handleButtons()
-        self.show()
+        self.database_obj   = Database()
+        self.security_obj   = Security()
+        self.log_obj        = LogSystem()
+        self.signin_window  = LoginScreen()
+        
+        ## calling the sign in window/Dialog
+        if self.signin_window.exec_() == QtWidgets.QDialog.Accepted:
+            # Starter methods
+            self.display_accounts_list()
+            self.display_accounts_to_edit()
+            self.handleButtons()
+            # show our application
+            self.show()
 
 
-    def handleButtons(self: "PyPassProject") -> None:
+    def handleButtons(self) -> None:
         """ Handling all buttons in the application """
         self.home_nav.clicked.connect(self.home_page)
         self.accounts_nav.clicked.connect(self.accounts_page)
@@ -61,20 +61,18 @@ class PyPassProject(QtWidgets.QMainWindow):
                     ## Handling right buttons ##
                     ############################
 
-    def home_page(self: "PyPassProject") -> None:
+    def home_page(self) -> None:
         self.tabWidgets = self.findChild(QtWidgets.QTabWidget, 'tabWidget')
         self.tabWidgets.setCurrentIndex(0)
 
-
-    def accounts_page(self: "PyPassProject") -> None:
+    def accounts_page(self) -> None:
         self.tabWidgets = self.findChild(QtWidgets.QTabWidget, 'tabWidget')
         self.tabWidgets.setCurrentIndex(1)
         # refresh the list in the next click
         self.listWidget.clear()
         self.display_accounts_list()
 
-
-    def edit_accounts_page(self: "PyPassProject") -> None:
+    def edit_accounts_page(self) -> None:
         self.tabWidgets = self.findChild(QtWidgets.QTabWidget, 'tabWidget')
         self.tabWidgets.setCurrentIndex(2)
         # refresh the list in the next click
@@ -86,33 +84,23 @@ class PyPassProject(QtWidgets.QMainWindow):
                     ## Handling buttons in accounts page ##
                     #######################################
 
-    def copy_plaintext_password(self: "PyPassProject") -> None:
-        """Copy plain text password to clipboard after decrypting it.
-
-        Args:
-            self (PyPassProject): PyPassProject instance
-        """
+    def copy_plaintext_password(self) -> None:
+        """Copy plain text password to clipboard after decrypting it."""
         selected_account = self.listWidget.currentItem().text().split(" :: ")
         accound_id = int(selected_account[0])
         db_data = list(self.database_obj.db_query(DB_NAME, f"SELECT * FROM Accounts WHERE id = {accound_id};"))
         plaintext_password = self.security_obj.decrypt(db_data[0][3].encode())
         pyperclip.copy(plaintext_password)
-        t1 = Thread(target=copy_notification)
-        t1.start()
         # create log event in /cores/Logs.txt
         self.log_obj.write_into_log("+", f"({selected_account}) has been moved to the clipboard")
-
+        self.statusBar().showMessage("[+] Copy the selected account.")
 
                     ###################################
                     ## Handling buttons in edit page ##
                     ###################################
 
-    def select_account_id(self: "PyPassProject") -> None:
-        """return the selected account data and put them into edit line
-
-        Args:
-            self (PyPassProject): PyPassProject instance
-        """
+    def select_account_id(self) -> None: # 11
+        """return the selected account data and put them into edit line"""
         account_id = self.getting_account_id.text()
         try:
             response = list(self.database_obj.db_query(DB_NAME,
@@ -127,12 +115,8 @@ class PyPassProject(QtWidgets.QMainWindow):
             print(error_message)
 
 
-    def add_new_account(self: "PyPassProject") -> None:
-        """adding new account to database
-
-        Args:
-            self (PyPassProject): PyPassProject instance
-        """
+    def add_new_account(self) -> None:
+        """adding new account to database"""
         plat_name = self.edit_account_platform.text()
         account =  self.edit_account_email.text()
         plain_password = self.edit_account_password.text()
@@ -140,19 +124,12 @@ class PyPassProject(QtWidgets.QMainWindow):
         encrypted_password = self.security_obj.encrypt(plain_password)
         self.database_obj.db_query(DB_NAME, 
         f"INSERT INTO Accounts (ApplicationName, Account, EncryptedPassword) VALUES ('{plat_name}', '{account}', '{encrypted_password}');")
-        t1 = Thread(target=add_notification)
-        t1.start()
+        self.statusBar().showMessage("[+] A new account has been added to database.")
         self.log_obj.write_into_log("+", f"(('{plat_name}', '{account}', '{encrypted_password}')) account was added!")
-        t1 = Thread(target=add_notification)
-        t1.start()
 
 
-    def edit_account(self: "PyPassProject") -> None:
-        """update selected account on database
-
-        Args:
-            self (PyPassProject): PyPassProject instance
-        """
+    def edit_account(self) -> None:
+        """update selected account on database"""
         plat_name = self.edit_account_platform.text()
         account =  self.edit_account_email.text()
         plain_password = self.edit_account_password.text()
@@ -161,33 +138,24 @@ class PyPassProject(QtWidgets.QMainWindow):
         self.database_obj.db_query(DB_NAME, 
             f"UPDATE Accounts SET ApplicationName = '{plat_name}', Account = '{account}', EncryptedPassword = '{encrypted_password}' WHERE id = {id};")
         self.log_obj.write_into_log("+", f"(('{plat_name}', '{account}', '{encrypted_password}')) account was updated!")
-        t1 = Thread(target=edit_notification)
-        t1.start()
+        self.statusBar().showMessage("[+] The account has been updated successfully!")
 
 
 
-    def delete_account(self: "PyPassProject") -> None:
-        """delete selected account from fatabase
-
-        Args:
-            self (PyPassProject): PyPassProject instance
-        """
+    def delete_account(self) -> None:
+        """delete selected account from fatabase"""
         id = int(self.getting_account_id.text())
         self.database_obj.db_query(DB_NAME, f"DELETE FROM Accounts WHERE id = {id};")
         self.log_obj.write_into_log("+", f"({id}) account was deleted!")
-        t1 = Thread(target=del_notification)
-        t1.start()
+        self.statusBar().showMessage("[+] The account has been removed successfully!")
 
 
                     ######################
                     ## Separate Methods ##
                     ######################
 
-    def reading_database_records(self: "PyPassProject") -> list:
+    def reading_database_records(self) -> list:
         """retrieve all database accounts
-
-        Args:
-            self (PyPassProject): PyPassProject instance
 
         Returns:
             list: list of datbase accounts
@@ -196,12 +164,8 @@ class PyPassProject(QtWidgets.QMainWindow):
         return list(result)
 
     
-    def display_accounts_list(self: "PyPassProject") -> None:
-        """append all database accounts to QListWidget on accounts page.
-
-        Args:
-            self (PyPassProject): PyPassProject instance
-        """
+    def display_accounts_list(self) -> None:
+        """append all database accounts to QListWidget on accounts page."""
         icons_path = os.path.join(os.path.dirname(__file__), "ui", "icons", "socialIcons")
         data = self.reading_database_records()
         record_index = 0
@@ -217,12 +181,8 @@ class PyPassProject(QtWidgets.QMainWindow):
             record_index += 1
 
     
-    def display_accounts_to_edit(self: "PyPassProject") -> None:
-        """append all database accounts to QListWidget on edit page.
-
-        Args:
-            self (PyPassProject): PyPassProject instance
-        """
+    def display_accounts_to_edit(self) -> None:
+        """append all database accounts to QListWidget on edit page."""
         icons_path = os.path.join(os.path.dirname(__file__), "ui", "icons", "socialIcons")
         data = self.reading_database_records()
         record_index = 0
@@ -242,5 +202,5 @@ class PyPassProject(QtWidgets.QMainWindow):
 if __name__ == "__main__":
     # calling our application :)
     app = QtWidgets.QApplication(sys.argv)
-    window = PyPassProject()
+    window = PyPass()
     app.exec_()

@@ -27,10 +27,10 @@ def user_account_setup():
     db_obj = Database()
     # use existing username from os as Account Username
     user_name = os.getlogin()
-    print("Your user name is:\n" + user_name)
+    print("Your user name is: " + user_name)
 
     # allow user to create a unique Account Password
-    print("*** Create an account password *** \n")
+    print("Your Account Password: ", end = "")
     user_pass = getpass.getpass()
     db_obj.db_query("PyPassdb.sqlite3", f"INSERT INTO Users (User_name, User_pass) VALUES ('{user_name}', '{user_pass}');")
     print("User Account Created!")
