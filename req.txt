@@ -1,3 +1,4 @@
 cryptography
 PyQt5
 pyperclip
+qrcode

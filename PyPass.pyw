@@ -3,10 +3,11 @@ import sys
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5 import QtWidgets, uic, QtGui
-from PyQt5.QtWidgets import QLineEdit
+from PyQt5.QtWidgets import QLineEdit, QLabel
 from cores.logsystem import LogSystem
 from cores.encryption import Security
 from cores.database_api import Database
+from cores.QR_handler import QRHandler
 from cores.login_screen_handler import LoginScreen
 import pyperclip
 
@@ -58,6 +59,7 @@ class PyPass(QtWidgets.QMainWindow):
         self.update_account_data.clicked.connect(self.edit_account)
         self.delete_account_data.clicked.connect(self.delete_account)
         self.show_password.clicked.connect(self.is_plain)
+        self.display_qr_btn.clicked.connect(self.show_qr_image)
         
 
                     ############################
@@ -97,6 +99,26 @@ class PyPass(QtWidgets.QMainWindow):
         # create log event in /cores/Logs.txt
         self.log_obj.write_into_log("+", f"({selected_account}) has been moved to the clipboard")
         self.statusBar().showMessage("[+] Copy the selected account.")
+        return plaintext_password
+
+    def show_qr_image(self):
+        
+        # [+] Generate the photo for selected account
+        self.qr_handle = QRHandler()
+        self.plain_password = self.copy_plaintext_password()
+        self.qr_handle.generate_qr(self.plain_password, "photo.png")
+
+        # [+] Display the image
+        # Reading qr photo in Pixmap
+        self.pixmap = QPixmap("photo.png")
+        # Append the pixmap to QLable
+        self.qr_image_obj.setPixmap(self.pixmap)
+        self.qr_image_obj.setScaledContents(True)
+
+        # [+] Remove the image from the path.
+        os.remove("photo.png")
+        
+
 
                     ###################################
                     ## Handling buttons in edit page ##
