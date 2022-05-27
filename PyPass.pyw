@@ -3,11 +3,12 @@ import sys
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5 import QtWidgets, uic, QtGui
-from PyQt5.QtWidgets import QLineEdit, QLabel
+from PyQt5.QtWidgets import QLineEdit, QMessageBox
 from cores.logsystem import LogSystem
 from cores.encryption import Security
 from cores.database_api import Database
 from cores.QR_handler import QRHandler
+from cores.password import Password
 from cores.login_screen_handler import LoginScreen
 import pyperclip
 
@@ -36,6 +37,7 @@ class PyPass(QtWidgets.QMainWindow):
         self.security_obj   = Security()
         self.log_obj        = LogSystem()
         self.signin_window  = LoginScreen()
+        self.password_obj = Password()
         self.is_clicked = True      # if show password is clicked
         
         ## calling the sign in window/Dialog
@@ -145,6 +147,24 @@ class PyPass(QtWidgets.QMainWindow):
         plat_name = self.edit_account_platform.text()
         account =  self.edit_account_email.text()
         plain_password = self.edit_account_password.text()
+
+        # Check for the password strength
+        if (self.password_obj.check_strength(plain_password) < 3):
+            generated_password = self.password_obj.generate_password()
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Information)
+            msgBox.setWindowTitle("Password Tip!")
+            msgBox.setText(f"""
+            Your password seems to be weak one :(
+            Let me help you with powerfull random password\n\n
+            Your password will be: {generated_password}
+            """)
+            msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+
+            user_response = msgBox.exec()
+            if user_response == QMessageBox.Ok:
+                plain_password = generated_password
+        
         # Encrypt password
         encrypted_password = self.security_obj.encrypt(plain_password)
         self.database_obj.db_query(DB_NAME, 
