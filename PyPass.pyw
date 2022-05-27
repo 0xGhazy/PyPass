@@ -3,6 +3,7 @@ import sys
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5 import QtWidgets, uic, QtGui
+from PyQt5.QtWidgets import QLineEdit
 from cores.logsystem import LogSystem
 from cores.encryption import Security
 from cores.database_api import Database
@@ -34,6 +35,7 @@ class PyPass(QtWidgets.QMainWindow):
         self.security_obj   = Security()
         self.log_obj        = LogSystem()
         self.signin_window  = LoginScreen()
+        self.is_clicked = True      # if show password is clicked
         
         ## calling the sign in window/Dialog
         if self.signin_window.exec_() == QtWidgets.QDialog.Accepted:
@@ -55,6 +57,7 @@ class PyPass(QtWidgets.QMainWindow):
         self.insert_account_data.clicked.connect(self.add_new_account)
         self.update_account_data.clicked.connect(self.edit_account)
         self.delete_account_data.clicked.connect(self.delete_account)
+        self.show_password.clicked.connect(self.is_plain)
         
 
                     ############################
@@ -140,6 +143,16 @@ class PyPass(QtWidgets.QMainWindow):
         self.log_obj.write_into_log("+", f"(('{plat_name}', '{account}', '{encrypted_password}')) account was updated!")
         self.statusBar().showMessage("[+] The account has been updated successfully!")
 
+
+    def is_plain(self):
+        if self.is_clicked:
+            self.edit_account_password.setEchoMode(QLineEdit.EchoMode.Normal)
+            self.show_password.setText("Hide")
+            self.is_clicked = False
+        elif self.is_clicked == False:
+            self.edit_account_password.setEchoMode(QLineEdit.EchoMode.Password)
+            self.show_password.setText("Show")
+            self.is_clicked = True
 
 
     def delete_account(self) -> None:

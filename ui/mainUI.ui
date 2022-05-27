@@ -521,6 +521,9 @@ QPushButton:active {
         <string notr="true">	border-radius:7px;
 	border:1px solid #18ab29;</string>
        </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
@@ -620,6 +623,32 @@ QPushButton:active {
        </property>
        <property name="text">
         <string>Add</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="show_password">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>240</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">	border-radius:7px;
+	border:1px solid #18ab29;</string>
+       </property>
+       <property name="text">
+        <string>Show</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="autoRepeat">
+        <bool>true</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
        </property>
       </widget>
      </widget>
