@@ -1,5 +1,7 @@
 import os
 import sys
+from pathlib import Path
+
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5 import QtWidgets, uic, QtGui
@@ -11,6 +13,12 @@ from cores.QR_handler import QRHandler
 from cores.password import Password
 from cores.login_screen_handler import LoginScreen
 import pyperclip
+
+
+BASE_DIR = Path(__file__).resolve().parent
+
+main_UI = BASE_DIR / "ui" / "mainUI.ui"
+
 
 # change this when you wanna add new platform, append it in lower case :)
 SUPPORTED_PLATFORMS = ["facebook", "codeforces", "github",
@@ -28,7 +36,7 @@ class PyPass(QtWidgets.QMainWindow):
         super(PyPass, self).__init__()
         os.chdir(os.path.dirname(__file__))
         # loading .ui design file.
-        uic.loadUi(r"ui\mainUI.ui", self) 
+        uic.loadUi(main_UI, self) 
         # hide tabwidget
         self.tabWidgets = self.findChild(QtWidgets.QTabWidget, 'tabWidget')
         self.tabWidgets.tabBar().setVisible(False)

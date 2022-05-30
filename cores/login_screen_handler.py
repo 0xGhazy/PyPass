@@ -1,11 +1,15 @@
 import os
 import sys
+from pathlib import Path
+
 from PyQt5.QtCore import *
 from PyQt5 import QtWidgets, uic, QtGui
 from cores.database_api import Database
 from cores.logsystem import LogSystem
 from threading import Thread
 
+
+signin_UI = Path(__file__).parent.parent / 'ui' / 'signin_screen.ui'
 
 class LoginScreen(QtWidgets.QDialog):
     """ Provide a login screen to uncrease the user privacy """
@@ -15,7 +19,7 @@ class LoginScreen(QtWidgets.QDialog):
         super(LoginScreen, self).__init__()
         os.chdir(os.path.dirname(__file__))
         # loading .ui design file.
-        uic.loadUi(r"..\ui\signin_screen.ui", self)
+        uic.loadUi(signin_UI, self)
         self.db_obj = Database()
         self.login_user_line.setText(self.get_first_user())
         self.log_obj = LogSystem()
