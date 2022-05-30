@@ -1,0 +1,151 @@
+/*--QMainWindow/self--*/
+QMainWindow{
+	color: rgb(0, 0, 0);
+	background-color:#191934;
+}
+/*###################### I'm separator :) ######################*/
+/*--tabWidget--*/
+background-color: rgb(24,24,36);
+border-color: rgb(16, 20, 20);
+/*###################### I'm separator :) ######################*/
+/*--listWidget--*/
+QListWidget{color: White;}
+/*###################### I'm separator :) ######################*/
+/*--display_qr_btn--*/
+QPushButton{
+    color: white;
+    font: 87 15pt "Arial Black";
+    background-color: rgb(35, 134, 54);
+    border-radius:7px;
+    border:1px solid #18ab29;
+}QPushButton:hover {
+    background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+    background-color:#18ab29;
+}QPushButton:active {
+    position:relative;
+    top:2px;
+}
+/*###################### I'm separator :) ######################*/
+/*--decrypt_and_copy_password--*/
+QPushButton {
+	color: white;
+font: 87 15pt "Arial Black";
+	background-color: rgb(35, 134, 54);
+	border-radius:7px;
+	border:1px solid #18ab29;
+}
+QPushButton:hover {
+	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+	background-color:#18ab29;
+}
+QPushButton:active {
+	position:relative;
+	top:2px;
+}
+/*###################### I'm separator :) ######################*/
+/*--getting_account_id--*/
+QLineEdit{
+    border-radius:7px;
+	border:1px solid #18ab29;
+	color: white;
+}
+/*###################### I'm separator :) ######################*/
+/*--select_by_id--*/
+QPushButton {
+	color: white;
+font: 87 15pt "Arial Black";
+	background-color: rgb(35, 134, 54);
+	border-radius:7px;
+	border:1px solid #18ab29;
+}
+QPushButton:hover {
+	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+	background-color:#18ab29;
+}
+QPushButton:active {
+	position:relative;
+	top:2px;
+}
+/*###################### I'm separator :) ######################*/
+/*--listWidget_edit_accounts--*/
+QListWidget{color: White;}
+/*###################### I'm separator :) ######################*/
+/*--edit_account_platform--*/
+QLineEdit{
+    border-radius:7px;
+	border:1px solid #18ab29;
+}
+/*###################### I'm separator :) ######################*/
+/*--edit_account_email--*/
+QLineEdit{
+    border-radius:7px;
+	border:1px solid #18ab29;
+}
+/*###################### I'm separator :) ######################*/
+/*--edit_account_password--*/
+QLineEdit{
+    border-radius:7px;
+	border:1px solid #18ab29;
+}
+/*###################### I'm separator :) ######################*/
+/*--show_password--*/
+QPushButton{
+    border-radius:7px;
+	border:1px solid #18ab29;
+}
+/*###################### I'm separator :) ######################*/
+/*--insert_account_data--*/
+QPushButton {
+	color: white;
+font: 87 15pt "Arial Black";
+	background-color: rgb(35, 134, 54);
+	border-radius:7px;
+	border:1px solid #18ab29;
+}
+QPushButton:hover {
+	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+	background-color:#18ab29;
+}
+QPushButton:active {
+	position:relative;
+	top:2px;
+}
+/*###################### I'm separator :) ######################*/
+/*--update_account_data--*/
+QPushButton {
+	color: white;
+font: 87 15pt "Arial Black";
+	background-color: rgb(35, 134, 54);
+	border-radius:7px;
+	border:1px solid #18ab29;
+}
+QPushButton:hover {
+	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+	background-color:#18ab29;
+}
+QPushButton:active {
+	position:relative;
+	top:2px;
+}
+/*###################### I'm separator :) ######################*/
+/*--delete_account_data--*/
+QPushButton {
+	color: #f85146;
+	font: 87 15pt "Arial Black";
+	background-color: #21262d;
+	border-radius:7px;
+	border:1px solid #f85146;
+}
+QPushButton:hover {
+	background:linear-gradient(to bottom, #ffffff 5%, #ffffff 100%);
+	background-color:#f85146;
+	color: #ffffff;
+}
+QPushButton:active {
+	position:relative;
+	top:2px;
+}
+/*###################### I'm separator :) ######################*/
+Final-message{
+    text-justify: "Hello world";
+}

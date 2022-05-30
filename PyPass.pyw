@@ -1,17 +1,17 @@
 import os
 import sys
 from pathlib import Path
-
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5 import QtWidgets, uic, QtGui
-from PyQt5.QtWidgets import QLineEdit, QMessageBox
+from PyQt5.QtWidgets import QLineEdit, QMessageBox, QMenu, QAction
 from cores.logsystem import LogSystem
 from cores.encryption import Security
 from cores.database_api import Database
 from cores.QR_handler import QRHandler
 from cores.password import Password
 from cores.login_screen_handler import LoginScreen
+from cores.css_parser import parssing_css
 import pyperclip
 
 
@@ -54,6 +54,7 @@ class PyPass(QtWidgets.QMainWindow):
             self.display_accounts_list()
             self.display_accounts_to_edit()
             self.handleButtons()
+            self.display_menus()
             # show our application
             self.show()
 
@@ -71,6 +72,54 @@ class PyPass(QtWidgets.QMainWindow):
         self.show_password.clicked.connect(self.is_plain)
         self.display_qr_btn.clicked.connect(self.show_qr_image)
         
+
+    
+    def display_menus(self):
+        menubar = self.menuBar()
+
+        # [+] Creating Edit menu
+        edit_menu = menubar.addMenu('&Edit')
+        # [+] `Change theme` submenu
+        theme_menu = QMenu('Change Theme', self)
+        self.theme0 = QAction('0- Default Theme', self)
+        self.theme1 = QAction('1- GitHub Dark', self)
+        self.theme2 = QAction('2- GitHub Light', self)
+        self.theme3 = QAction('3- Black Gold', self)
+        theme_menu.addAction(self.theme0)
+        theme_menu.addAction(self.theme1)
+        theme_menu.addAction(self.theme2)
+        theme_menu.addAction(self.theme3)
+        edit_menu.addMenu(theme_menu)
+        
+        # [+] Handling change theme actions/invocations
+        self.theme0.triggered.connect(lambda i = None : self.change_theme("default.css"))
+        self.theme1.triggered.connect(lambda i = None : self.change_theme("Github-dark.css"))
+        self.theme2.triggered.connect(lambda i = None : self.change_theme("Github-light.css"))
+        self.theme3.triggered.connect(lambda i = None : self.change_theme("Black-Gold.css"))
+    
+
+    def change_theme(self, theme_name):
+        path = Path(__file__).resolve().parent
+        themes_path = path / "ui" / "themes" / theme_name
+        css_style = parssing_css(themes_path)
+        
+        # Setting new theme data.
+        self.setStyleSheet(css_style["self"])
+        self.tabWidget.setStyleSheet(css_style["tabWidget"])
+        self.listWidget.setStyleSheet(css_style["listWidget"])
+        self.display_qr_btn.setStyleSheet(css_style["display_qr_btn"])
+        self.decrypt_and_copy_password.setStyleSheet(css_style["decrypt_and_copy_password"])
+        self.getting_account_id.setStyleSheet(css_style["getting_account_id"])
+        self.select_by_id.setStyleSheet(css_style["select_by_id"])
+        self.listWidget_edit_accounts.setStyleSheet(css_style["listWidget_edit_accounts"])
+        self.edit_account_platform.setStyleSheet(css_style["edit_account_platform"])
+        self.edit_account_email.setStyleSheet(css_style["edit_account_email"])
+        self.edit_account_password.setStyleSheet(css_style["edit_account_password"])
+        self.show_password.setStyleSheet(css_style["show_password"])
+        self.insert_account_data.setStyleSheet(css_style["insert_account_data"])
+        self.update_account_data.setStyleSheet(css_style["update_account_data"])
+        self.delete_account_data.setStyleSheet(css_style["delete_account_data"])
+
 
                     ############################
                     ## Handling right buttons ##
