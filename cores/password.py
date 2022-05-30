@@ -4,9 +4,9 @@ import string
 class Password:
     """
         Password class takes care of:
-        - Checks for password stregth.
+        - Checks for password strength.
         - Generates strong random password that contains lower/upper/numbers,
-          random password legth 16 bits.
+          random password length 16 bits.
     """
 
     def __init__(self):
