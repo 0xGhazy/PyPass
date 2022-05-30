@@ -156,7 +156,7 @@ class PyPass(QtWidgets.QMainWindow):
             msgBox.setWindowTitle("Password Tip!")
             msgBox.setText(f"""
             Your password seems to be weak one :(
-            Let me help you with powerfull random password\n\n
+            Let me help you with powerful random password\n\n
             Your password will be: {generated_password}
             """)
             msgBox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
@@ -213,7 +213,7 @@ class PyPass(QtWidgets.QMainWindow):
         """retrieve all database accounts
 
         Returns:
-            list: list of datbase accounts
+            list: list of database accounts
         """
         result = self.database_obj.db_query(DB_NAME,"SELECT * FROM Accounts")
         return list(result)
