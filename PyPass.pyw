@@ -16,7 +16,6 @@ import pyperclip
 
 
 BASE_DIR = Path(__file__).resolve().parent
-
 main_UI = BASE_DIR / "ui" / "mainUI.ui"
 
 
@@ -134,6 +133,7 @@ class PyPass(QtWidgets.QMainWindow):
         self.tabWidgets.setCurrentIndex(1)
         # refresh the list in the next click
         self.listWidget.clear()
+        self.listWidget.update()
         self.display_accounts_list()
 
     def edit_accounts_page(self) -> None:
@@ -141,6 +141,7 @@ class PyPass(QtWidgets.QMainWindow):
         self.tabWidgets.setCurrentIndex(2)
         # refresh the list in the next click
         self.listWidget_edit_accounts.clear()
+        self.listWidget_edit_accounts.update()
         self.display_accounts_to_edit()
 
     def setting_page(self) -> None:
@@ -233,7 +234,7 @@ class PyPass(QtWidgets.QMainWindow):
         f"INSERT INTO Accounts (ApplicationName, Account, EncryptedPassword) VALUES ('{plat_name}', '{account}', '{encrypted_password}');")
         self.statusBar().showMessage("[+] A new account has been added to database.")
         self.log_obj.write_into_log("+", f"(('{plat_name}', '{account}', '{encrypted_password}')) account was added!")
-
+        self.edit_accounts_page()
 
     def edit_account(self) -> None:
         """update selected account on database"""
@@ -246,7 +247,7 @@ class PyPass(QtWidgets.QMainWindow):
             f"UPDATE Accounts SET ApplicationName = '{plat_name}', Account = '{account}', EncryptedPassword = '{encrypted_password}' WHERE id = {id};")
         self.log_obj.write_into_log("+", f"(('{plat_name}', '{account}', '{encrypted_password}')) account was updated!")
         self.statusBar().showMessage("[+] The account has been updated successfully!")
-
+        self.edit_accounts_page()
 
     def is_plain(self):
         if self.is_clicked:
@@ -265,7 +266,7 @@ class PyPass(QtWidgets.QMainWindow):
         self.database_obj.db_query(f"DELETE FROM Accounts WHERE id = {id};")
         self.log_obj.write_into_log("+", f"({id}) account was deleted!")
         self.statusBar().showMessage("[+] The account has been removed successfully!")
-
+        self.edit_accounts_page()
 
                     ######################################
                     ## Handling Methods in setting page ##
@@ -331,6 +332,7 @@ class PyPass(QtWidgets.QMainWindow):
     
     def display_accounts_to_edit(self) -> None:
         """append all database accounts to QListWidget on edit page."""
+        self.listWidget_edit_accounts.update()
         icons_path = os.path.join(os.path.dirname(__file__), "ui", "icons", "socialIcons")
         data = self.reading_database_records()
         record_index = 0
@@ -339,10 +341,12 @@ class PyPass(QtWidgets.QMainWindow):
             if f"{row[1].lower()}" in SUPPORTED_PLATFORMS:
                 item = QtWidgets.QListWidgetItem(icon, f"{row[0]} :: {row[2]}")
                 self.listWidget_edit_accounts.addItem(item)
+                self.listWidget_edit_accounts.repaint()
             else:
                 icon = QtGui.QIcon(os.path.join(icons_path, f"user.png"))
                 item = QtWidgets.QListWidgetItem(icon, f"{row[0]} ::{row[1]} :: {row[2]}")
                 self.listWidget_edit_accounts.addItem(item)
+                self.listWidget_edit_accounts.update()
             record_index += 1
 
 
