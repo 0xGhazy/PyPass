@@ -4,7 +4,7 @@ from pathlib import Path
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from PyQt5 import QtWidgets, uic, QtGui
-from PyQt5.QtWidgets import QLineEdit, QMessageBox, QMenu, QAction
+from PyQt5.QtWidgets import QLineEdit, QMessageBox, QMenu, QAction, QFileDialog
 from cores.logsystem import LogSystem
 from cores.encryption import Security
 from cores.database_api import Database
@@ -40,6 +40,7 @@ class PyPass(QtWidgets.QMainWindow):
         # hide tabwidget
         self.tabWidgets = self.findChild(QtWidgets.QTabWidget, 'tabWidget')
         self.tabWidgets.tabBar().setVisible(False)
+        self.app_path = Path(__file__).resolve().parent
         # Application Data
         self.database_obj   = Database()
         self.security_obj   = Security()
@@ -64,6 +65,7 @@ class PyPass(QtWidgets.QMainWindow):
         self.home_nav.clicked.connect(self.home_page)
         self.accounts_nav.clicked.connect(self.accounts_page)
         self.edit_nav.clicked.connect(self.edit_accounts_page)
+        self.settings_nav.clicked.connect(self.setting_page)
         self.decrypt_and_copy_password.clicked.connect(self.copy_plaintext_password)
         self.select_by_id.clicked.connect(self.select_account_id)
         self.insert_account_data.clicked.connect(self.add_new_account)
@@ -71,6 +73,8 @@ class PyPass(QtWidgets.QMainWindow):
         self.delete_account_data.clicked.connect(self.delete_account)
         self.show_password.clicked.connect(self.is_plain)
         self.display_qr_btn.clicked.connect(self.show_qr_image)
+        self.import_key_btn.clicked.connect(self.import_key)
+        self.export_key_btn.clicked.connect(self.export_key)
         
 
     
@@ -99,8 +103,7 @@ class PyPass(QtWidgets.QMainWindow):
     
 
     def change_theme(self, theme_name):
-        path = Path(__file__).resolve().parent
-        themes_path = path / "ui" / "themes" / theme_name
+        themes_path = self.app_path / "ui" / "themes" / theme_name
         css_style = parssing_css(themes_path)
         
         # Setting new theme data.
@@ -143,6 +146,12 @@ class PyPass(QtWidgets.QMainWindow):
         self.listWidget_edit_accounts.clear()
         self.display_accounts_to_edit()
 
+    def setting_page(self) -> None:
+        self.tabWidgets = self.findChild(QtWidgets.QTabWidget, 'tabWidget')
+        self.tabWidgets.setCurrentIndex(3)
+        # Display the currant key path
+        key_path = self.app_path / "cores" / "security_key.key"
+        self.enc_key_edit.setText(f" {str(key_path)}")
 
                     #######################################
                     ## Handling buttons in accounts page ##
@@ -261,6 +270,37 @@ class PyPass(QtWidgets.QMainWindow):
         self.log_obj.write_into_log("+", f"({id}) account was deleted!")
         self.statusBar().showMessage("[+] The account has been removed successfully!")
 
+
+                    ######################################
+                    ## Handling Methods in setting page ##
+                    ######################################
+
+    def import_key(self):
+        key_file, _ = QFileDialog.getOpenFileName(self, 'Open file', '', 'All Files (*.*)')
+        if len(key_file) < 1:
+            pass
+        else:
+             # Read the key.
+            with open(key_file, "rb") as k_file:
+                content = k_file.read()
+            # Write The new key.
+            key_path = self.app_path / "cores" / "security_key.key"
+            with open(key_path, "wb") as k_file:
+                k_file.write(content)
+        self.log_obj.write_into_log("+", f"A new key has been imported")
+        self.statusBar().showMessage("[+] Your new key is imported successfully!")
+
+    def export_key(self):
+        exported_key_path, _ = QFileDialog.getSaveFileName(self, "Save File", "security_key.key")
+        key_file = self.app_path / "cores" / "security_key.key"
+        # Read the key.
+        with open(key_file, "rb") as k_file:
+            content = k_file.read()
+        # Write The new key.
+        with open(exported_key_path, "wb") as k_file:
+            k_file.write(content)
+        self.log_obj.write_into_log("+", f"The key is exported at {exported_key_path}")
+        self.statusBar().showMessage(f"[+] Your key is Exported successfully! @ {exported_key_path}")
 
                     ######################
                     ## Separate Methods ##

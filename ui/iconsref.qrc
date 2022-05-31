@@ -21,5 +21,6 @@
     <file>icons/homeph.jpg</file>
     <file>icons/edit_user.png</file>
     <file>icons/password.png</file>
+    <file>icons/settings.png</file>
   </qresource>
 </RCC>
