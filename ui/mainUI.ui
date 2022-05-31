@@ -12,8 +12,8 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>1164</width>
-    <height>629</height>
+    <width>50</width>
+    <height>50</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -52,8 +52,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>151</width>
-      <height>171</height>
+      <width>111</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="text">
@@ -70,42 +70,16 @@
      </size>
     </property>
     <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="accounts_nav">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>170</y>
-      <width>151</width>
-      <height>161</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>icons/users.png</normaloff>icons/users.png</iconset>
-    </property>
-    <property name="iconSize">
-     <size>
-      <width>80</width>
-      <height>80</height>
-     </size>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="edit_nav">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>330</y>
-      <width>151</width>
-      <height>161</height>
+      <y>240</y>
+      <width>111</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="text">
@@ -122,16 +96,16 @@
      </size>
     </property>
     <property name="flat">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="exit">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>490</y>
-      <width>151</width>
-      <height>141</height>
+      <y>480</y>
+      <width>111</width>
+      <height>121</height>
      </rect>
     </property>
     <property name="text">
@@ -148,13 +122,13 @@
      </size>
     </property>
     <property name="flat">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>110</x>
       <y>0</y>
       <width>1251</width>
       <height>851</height>
@@ -183,7 +157,7 @@ border-color: rgb(16, 20, 20);
        <rect>
         <x>-40</x>
         <y>-8</y>
-        <width>1071</width>
+        <width>1121</width>
         <height>621</height>
        </rect>
       </property>
@@ -205,7 +179,7 @@ border-color: rgb(16, 20, 20);
      <widget class="QPushButton" name="decrypt_and_copy_password">
       <property name="geometry">
        <rect>
-        <x>710</x>
+        <x>730</x>
         <y>430</y>
         <width>241</width>
         <height>41</height>
@@ -309,7 +283,7 @@ QPushButton:active {
      <widget class="QPushButton" name="display_qr_btn">
       <property name="geometry">
        <rect>
-        <x>710</x>
+        <x>730</x>
         <y>370</y>
         <width>241</width>
         <height>41</height>
@@ -340,7 +314,7 @@ QPushButton:active {
      <widget class="QLabel" name="qr_image_obj">
       <property name="geometry">
        <rect>
-        <x>700</x>
+        <x>720</x>
         <y>70</y>
         <width>250</width>
         <height>250</height>
@@ -443,7 +417,7 @@ QPushButton:active {
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>630</x>
+        <x>650</x>
         <y>90</y>
         <width>371</width>
         <height>471</height>
@@ -766,6 +740,261 @@ QPushButton:active {
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Settings</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>1031</width>
+        <height>561</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border:&quot;&quot;;</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="verticalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOn</enum>
+         </property>
+         <property name="horizontalScrollBarPolicy">
+          <enum>Qt::ScrollBarAlwaysOff</enum>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>1006</width>
+            <height>543</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="styleSheet">
+              <string notr="true">border:&quot;&quot;;</string>
+             </property>
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QGroupBox" name="groupBox_4">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>970</width>
+                  <height>150</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QGroupBox{
+color: &quot;white&quot;;
+font-size: 30px;
+border-style: none;
+}</string>
+                </property>
+                <property name="title">
+                 <string>Security Settings</string>
+                </property>
+                <widget class="QPushButton" name="import_key_btn">
+                 <property name="geometry">
+                  <rect>
+                   <x>720</x>
+                   <y>80</y>
+                   <width>111</width>
+                   <height>51</height>
+                  </rect>
+                 </property>
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>75</width>
+                   <height>23</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton {
+	color: white;
+font: 87 15pt &quot;Arial Black&quot;;
+	background-color: rgb(35, 134, 54);
+	border-radius:7px;
+	border:1px solid #18ab29;
+}
+
+QPushButton:hover {
+	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+	background-color:#18ab29;
+}
+QPushButton:active {
+	position:relative;
+	top:2px;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>Import</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_5">
+                 <property name="geometry">
+                  <rect>
+                   <x>16</x>
+                   <y>40</y>
+                   <width>201</width>
+                   <height>31</height>
+                  </rect>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>15</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: &quot;white&quot;;</string>
+                 </property>
+                 <property name="text">
+                  <string>Encryption key path</string>
+                 </property>
+                </widget>
+                <widget class="QPushButton" name="export_key_btn">
+                 <property name="geometry">
+                  <rect>
+                   <x>840</x>
+                   <y>80</y>
+                   <width>111</width>
+                   <height>51</height>
+                  </rect>
+                 </property>
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>75</width>
+                   <height>23</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton {
+	color: white;
+font: 87 15pt &quot;Arial Black&quot;;
+	background-color: rgb(35, 134, 54);
+	border-radius:7px;
+	border:1px solid #18ab29;
+}
+
+QPushButton:hover {
+	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+	background-color:#18ab29;
+}
+QPushButton:active {
+	position:relative;
+	top:2px;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>Export</string>
+                 </property>
+                </widget>
+                <widget class="QLineEdit" name="enc_key_edit">
+                 <property name="geometry">
+                  <rect>
+                   <x>12</x>
+                   <y>79</y>
+                   <width>691</width>
+                   <height>51</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">border-radius:7px;
+border:1px solid #18ab29;
+color: &quot;gray&quot;;
+font-size: 20px;
+</string>
+                 </property>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="accounts_nav">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>120</y>
+      <width>111</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/users.png</normaloff>icons/users.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>360</y>
+      <width>111</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
