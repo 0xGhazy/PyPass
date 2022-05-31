@@ -26,9 +26,6 @@ SUPPORTED_PLATFORMS = ["facebook", "codeforces", "github",
                        "outlook", "quora", "twitter",
                        "udacity", "udemy", "university", "wordpress"]
 
-DB_NAME = "PyPassdb.sqlite3"
-
-
 class PyPass(QtWidgets.QMainWindow):
 
 
@@ -161,7 +158,7 @@ class PyPass(QtWidgets.QMainWindow):
         """Copy plain text password to clipboard after decrypting it."""
         selected_account = self.listWidget.currentItem().text().split(" :: ")
         accound_id = int(selected_account[0])
-        db_data = list(self.database_obj.db_query(DB_NAME, f"SELECT * FROM Accounts WHERE id = {accound_id};"))
+        db_data = list(self.database_obj.db_query(f"SELECT * FROM Accounts WHERE id = {accound_id};"))
         plaintext_password = self.security_obj.decrypt(db_data[0][3].encode())
         pyperclip.copy(plaintext_password)
         # create log event in /cores/Logs.txt
@@ -196,8 +193,7 @@ class PyPass(QtWidgets.QMainWindow):
         """return the selected account data and put them into edit line"""
         account_id = self.getting_account_id.text()
         try:
-            response = list(self.database_obj.db_query(DB_NAME,
-                                   f"SELECT * FROM Accounts WHERE id={account_id}"))
+            response = list(self.database_obj.db_query(f"SELECT * FROM Accounts WHERE id={account_id}"))
             # display result on line edit
             self.edit_account_platform.setText(response[0][1])
             self.edit_account_email.setText(response[0][2])
@@ -233,7 +229,7 @@ class PyPass(QtWidgets.QMainWindow):
         
         # Encrypt password
         encrypted_password = self.security_obj.encrypt(plain_password)
-        self.database_obj.db_query(DB_NAME, 
+        self.database_obj.db_query(
         f"INSERT INTO Accounts (ApplicationName, Account, EncryptedPassword) VALUES ('{plat_name}', '{account}', '{encrypted_password}');")
         self.statusBar().showMessage("[+] A new account has been added to database.")
         self.log_obj.write_into_log("+", f"(('{plat_name}', '{account}', '{encrypted_password}')) account was added!")
@@ -246,7 +242,7 @@ class PyPass(QtWidgets.QMainWindow):
         plain_password = self.edit_account_password.text()
         encrypted_password = self.security_obj.encrypt(plain_password)
         id = int(self.getting_account_id.text())
-        self.database_obj.db_query(DB_NAME, 
+        self.database_obj.db_query(
             f"UPDATE Accounts SET ApplicationName = '{plat_name}', Account = '{account}', EncryptedPassword = '{encrypted_password}' WHERE id = {id};")
         self.log_obj.write_into_log("+", f"(('{plat_name}', '{account}', '{encrypted_password}')) account was updated!")
         self.statusBar().showMessage("[+] The account has been updated successfully!")
@@ -266,7 +262,7 @@ class PyPass(QtWidgets.QMainWindow):
     def delete_account(self) -> None:
         """delete selected account from fatabase"""
         id = int(self.getting_account_id.text())
-        self.database_obj.db_query(DB_NAME, f"DELETE FROM Accounts WHERE id = {id};")
+        self.database_obj.db_query(f"DELETE FROM Accounts WHERE id = {id};")
         self.log_obj.write_into_log("+", f"({id}) account was deleted!")
         self.statusBar().showMessage("[+] The account has been removed successfully!")
 
@@ -312,7 +308,7 @@ class PyPass(QtWidgets.QMainWindow):
         Returns:
             list: list of database accounts
         """
-        result = self.database_obj.db_query(DB_NAME,"SELECT * FROM Accounts")
+        result = self.database_obj.db_query("SELECT * FROM Accounts")
         return list(result)
 
     

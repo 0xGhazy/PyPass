@@ -27,12 +27,10 @@ class LoginScreen(QtWidgets.QDialog):
         self.show()
 
     def get_first_user(self):
-        db_response = self.db_obj.db_query("PyPassdb.sqlite3", f"SELECT * FROM Users")
-
+        db_response = self.db_obj.db_query(f"SELECT * FROM Users")
         if db_response != None:
             username = list(db_response)[0][1]
             return username
-
 
 
     def login(self):
@@ -47,7 +45,7 @@ class LoginScreen(QtWidgets.QDialog):
             self.status.setText("Can't let Username or Password empty !!")
         else:
             # Validate username and password.
-            db_response = self.db_obj.db_query("PyPassdb.sqlite3", f"SELECT * FROM Users")
+            db_response = self.db_obj.db_query(f"SELECT * FROM Users")
             for record in list(db_response):
                 user_id, user_name, password = record
                 if login_username == user_name and login_password == password:

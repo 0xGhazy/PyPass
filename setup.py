@@ -32,7 +32,7 @@ def user_account_setup():
     # allow user to create a unique Account Password
     print("Your Account Password: ", end = "")
     user_pass = getpass.getpass()
-    db_obj.db_query("PyPassdb.sqlite3", f"INSERT INTO Users (User_name, User_pass) VALUES ('{user_name}', '{user_pass}');")
+    db_obj.db_query(f"INSERT INTO Users (UserName, UserPass) VALUES ('{user_name}', '{user_pass}');")
     print("User Account Created!")
 
 if __name__ == '__main__':
