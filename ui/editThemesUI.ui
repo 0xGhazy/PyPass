@@ -1,0 +1,1007 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EditTheme</class>
+ <widget class="QDialog" name="EditTheme">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>766</width>
+    <height>662</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PyPass Theme Editor</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">color: rgb(0,25,61);
+background-color:#00193d;</string>
+  </property>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>781</width>
+     <height>581</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Cascadia Code SemiBold</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #023057;
+border:#023057;
+border: None
+</string>
+   </property>
+   <property name="tabPosition">
+    <enum>QTabWidget::North</enum>
+   </property>
+   <property name="tabShape">
+    <enum>QTabWidget::Rounded</enum>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>1000</width>
+     <height>1000</height>
+    </size>
+   </property>
+   <property name="elideMode">
+    <enum>Qt::ElideLeft</enum>
+   </property>
+   <property name="usesScrollButtons">
+    <bool>false</bool>
+   </property>
+   <property name="tabBarAutoHide">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Main Application Style</string>
+    </attribute>
+    <widget class="QLineEdit" name="tabwidgetEdit">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>140</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="mainWindowEdit">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>70</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>140</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>TabWidget</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>70</y>
+       <width>151</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>QMainWindow</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>Accounts Tabe Style</string>
+    </attribute>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>280</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Copy Pass Button</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editAccountList">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>70</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14p &quot;Cascadia Code&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editCopyButton">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>280</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>210</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Show QR Button</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>70</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Edit Accounts List</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editQRColor">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>140</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editQRButton">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>210</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14p &quot;Cascadia Code&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>140</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>QR Color</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3">
+    <attribute name="title">
+     <string>Edit Accounts Tabe Style</string>
+    </attribute>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>70</y>
+       <width>131</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Input Fileds</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="ediGroup">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>370</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>250</y>
+       <width>151</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Delete Button</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>190</y>
+       <width>121</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Show Button</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editInputFields">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>70</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>130</y>
+       <width>201</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Select/Add/Update</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editLabels">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>310</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>430</y>
+       <width>211</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Edit Accounts List</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>370</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Group Box </string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editManubuttons">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>130</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_19">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>310</y>
+       <width>101</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Labels</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editShowButton">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>190</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editDeleteButton">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>250</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editAccountsList_2">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>430</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_4">
+    <attribute name="title">
+     <string>Security Tabe Style</string>
+    </attribute>
+    <widget class="QLabel" name="label_26">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>210</y>
+       <width>151</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Input Field</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_27">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>70</y>
+       <width>181</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Header Groups</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_25">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>140</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Normal labels</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_24">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>280</y>
+       <width>131</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Cascadia Code</family>
+       <pointsize>14</pointsize>
+       <weight>10</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 87 14p &quot;Cascadia Code&quot;;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Buttons</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editNormalLabels">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>140</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editHeaders">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>70</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editSecFields">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>210</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="editSecButtons">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>280</y>
+       <width>451</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	border-radius:7px;
+	border:1px solid #0563a6;
+	color:#F2DF3A;
+	font: 87 14pt &quot;Cascadia Code&quot;;</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="saveTheme">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>600</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	color: white;
+font: 87 15pt &quot;Arial Black&quot;;
+	background-color: rgb(5,99,166);
+	border-radius:7px;
+	border:1px solid #0563a6;
+}
+
+QPushButton:hover {
+	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+	background-color:#4cac7e;
+}
+QPushButton:active {
+	position:relative;
+	top:2px;
+}</string>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="importTheme">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>600</y>
+     <width>181</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	color: white;
+font: 87 15pt &quot;Arial Black&quot;;
+	background-color: rgb(5,99,166);
+	border-radius:7px;
+	border:1px solid #0563a6;
+}
+
+QPushButton:hover {
+	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+	background-color:#4cac7e;
+}
+QPushButton:active {
+	position:relative;
+	top:2px;
+}</string>
+   </property>
+   <property name="text">
+    <string>Import</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Close">
+   <property name="geometry">
+    <rect>
+     <x>600</x>
+     <y>600</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	color: #fff;
+	font: 87 15pt &quot;Arial Black&quot;;
+	background-color: #f85146;
+	border-radius:7px;
+	border:1px solid #f85146;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Restore">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>600</y>
+     <width>181</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	color: white;
+font: 87 15pt &quot;Arial Black&quot;;
+	background-color: rgb(5,99,166);
+	border-radius:7px;
+	border:1px solid #0563a6;
+}
+
+QPushButton:hover {
+	background:linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+	background-color:#4cac7e;
+}
+QPushButton:active {
+	position:relative;
+	top:2px;
+}</string>
+   </property>
+   <property name="text">
+    <string>Restore</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>Close</sender>
+   <signal>clicked()</signal>
+   <receiver>EditTheme</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>663</x>
+     <y>634</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>750</x>
+     <y>-10</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

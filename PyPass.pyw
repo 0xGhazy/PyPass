@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 from pathlib import Path
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
@@ -11,7 +12,7 @@ from cores.database_api import Database
 from cores.QR_handler import QRHandler
 from cores.password import Password
 from cores.login_screen_handler import LoginScreen
-from cores.css_parser import parssing_css
+from cores.ThemeEditor import ThemeScreenEdit
 import pyperclip
 
 
@@ -26,7 +27,6 @@ SUPPORTED_PLATFORMS = ["facebook", "codeforces", "github",
                        "udacity", "udemy", "university", "wordpress"]
 
 class PyPass(QtWidgets.QMainWindow):
-
 
     def __init__(self) -> None:
         super(PyPass, self).__init__()
@@ -51,8 +51,9 @@ class PyPass(QtWidgets.QMainWindow):
             self.display_accounts_list()
             self.display_accounts_to_edit()
             self.handleButtons()
-            self.display_menus()
+            ### self.display_menus()
             # show our application
+            self.change_theme()
             self.show()
 
 
@@ -71,53 +72,7 @@ class PyPass(QtWidgets.QMainWindow):
         self.display_qr_btn.clicked.connect(self.show_qr_image)
         self.import_key_btn.clicked.connect(self.import_key)
         self.export_key_btn.clicked.connect(self.export_key)
-        
-
-    
-    def display_menus(self):
-        menubar = self.menuBar()
-
-        # [+] Creating Edit menu
-        edit_menu = menubar.addMenu('&Edit')
-        # [+] `Change theme` submenu
-        theme_menu = QMenu('Change Theme', self)
-        self.theme0 = QAction('0- Default Theme', self)
-        self.theme1 = QAction('1- GitHub Dark', self)
-        self.theme2 = QAction('2- GitHub Light', self)
-        self.theme3 = QAction('3- Black Gold', self)
-        theme_menu.addAction(self.theme0)
-        theme_menu.addAction(self.theme1)
-        theme_menu.addAction(self.theme2)
-        theme_menu.addAction(self.theme3)
-        edit_menu.addMenu(theme_menu)
-        
-        # [+] Handling change theme actions/invocations
-        self.theme0.triggered.connect(lambda i = None : self.change_theme("default.css"))
-        self.theme1.triggered.connect(lambda i = None : self.change_theme("Github-dark.css"))
-        self.theme2.triggered.connect(lambda i = None : self.change_theme("Github-light.css"))
-        self.theme3.triggered.connect(lambda i = None : self.change_theme("Black-Gold.css"))
-    
-
-    def change_theme(self, theme_name):
-        themes_path = self.app_path / "ui" / "themes" / theme_name
-        css_style = parssing_css(themes_path)
-        
-        # Setting new theme data.
-        self.setStyleSheet(css_style["self"])
-        self.tabWidget.setStyleSheet(css_style["tabWidget"])
-        self.listWidget.setStyleSheet(css_style["listWidget"])
-        self.display_qr_btn.setStyleSheet(css_style["display_qr_btn"])
-        self.decrypt_and_copy_password.setStyleSheet(css_style["decrypt_and_copy_password"])
-        self.getting_account_id.setStyleSheet(css_style["getting_account_id"])
-        self.select_by_id.setStyleSheet(css_style["select_by_id"])
-        self.listWidget_edit_accounts.setStyleSheet(css_style["listWidget_edit_accounts"])
-        self.edit_account_platform.setStyleSheet(css_style["edit_account_platform"])
-        self.edit_account_email.setStyleSheet(css_style["edit_account_email"])
-        self.edit_account_password.setStyleSheet(css_style["edit_account_password"])
-        self.show_password.setStyleSheet(css_style["show_password"])
-        self.insert_account_data.setStyleSheet(css_style["insert_account_data"])
-        self.update_account_data.setStyleSheet(css_style["update_account_data"])
-        self.delete_account_data.setStyleSheet(css_style["delete_account_data"])
+        self.theme_editor_button.clicked.connect(self.run_Editor)
 
 
                     ############################
@@ -299,6 +254,18 @@ class PyPass(QtWidgets.QMainWindow):
         self.log_obj.write_into_log("+", f"The key is exported at {exported_key_path}")
         self.statusBar().showMessage(f"[+] Your key is Exported successfully! @ {exported_key_path}")
 
+
+    def run_Editor(self) -> None:
+        """Calling the editor screen"""
+        self.theme_editor = ThemeScreenEdit()
+        if self.theme_editor == QtWidgets.QDialog.Accepted:
+            self.display_accounts_list()
+            self.display_accounts_to_edit()
+            self.handleButtons()
+            # show our application
+            self.change_theme()
+            self.statusBar().showMessage("[+] Restart the application to see the new Theme :)")
+            
                     ######################
                     ## Separate Methods ##
                     ######################
@@ -349,6 +316,37 @@ class PyPass(QtWidgets.QMainWindow):
                 self.listWidget_edit_accounts.update()
             record_index += 1
 
+
+    def change_theme(self):
+        json_path = self.app_path / "ui" / "themes" / "mycss.json"
+        with open(json_path, 'r') as f:
+            css_style = json.load(f)
+        self.setStyleSheet(css_style["mainQt"])
+        self.tabWidget.setStyleSheet(css_style["tabWidget"])
+        # Accounts Tabe Style
+        self.listWidget.setStyleSheet(css_style["accountsList"])
+        self.display_qr_btn.setStyleSheet(css_style["editQRButton"])
+        self.decrypt_and_copy_password.setStyleSheet(css_style["editCopyButton"])
+        # Edit Accounts Tabe Style
+        self.getting_account_id.setStyleSheet(css_style["editInputFields"])
+        self.select_by_id.setStyleSheet(css_style["editManubuttons"])
+        self.listWidget_edit_accounts.setStyleSheet(css_style["editAccountsList_2"])
+        self.edit_account_platform.setStyleSheet(css_style["editInputFields"])
+        self.edit_account_email.setStyleSheet(css_style["editInputFields"])
+        self.edit_account_password.setStyleSheet(css_style["editInputFields"])
+        self.show_password.setStyleSheet(css_style["editShowButton"])
+        self.insert_account_data.setStyleSheet(css_style["editManubuttons"])
+        self.update_account_data.setStyleSheet(css_style["editManubuttons"])
+        self.groupBoxEditTabe.setStyleSheet(css_style["ediGroup"])
+        self.delete_account_data.setStyleSheet(css_style["editDeleteButton"])
+        self.platformlabel.setStyleSheet(css_style["editLabels"])
+        self.account_label.setStyleSheet(css_style["editLabels"])
+        self.plain_password_lable.setStyleSheet(css_style["editLabels"])
+        # Settings Tabe Style
+        self.import_key_btn.setStyleSheet(css_style["editSecButtons"])
+        self.export_key_btn.setStyleSheet(css_style["editSecButtons"])
+        self.theme_editor_button.setStyleSheet(css_style["editSecButtons"])
+        self.enc_key_edit.setStyleSheet(css_style["editInputFields"])
 
 
 if __name__ == "__main__":

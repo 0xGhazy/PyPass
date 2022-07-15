@@ -1,4 +1,6 @@
 import qrcode
+import json
+from pathlib import Path
 
 class QRHandler:
 
@@ -9,8 +11,10 @@ class QRHandler:
                                 box_size = 10,
                                 border = 4)
         self.qr_image = None
-        self._qr_image_color = "cyan"
-        self._qr_image_bg = "black"
+        # img_color, bg_color = 
+        result = self.load_current_css()["editQRColor"]
+        img_color, bg_color = result.split(",")
+        self.set_image_colors(img_color, bg_color)
 
 
     def set_image_colors(self, fill_color, background_color):
@@ -26,9 +30,14 @@ class QRHandler:
         self.qr_image.save(img_name)
 
 
+    def load_current_css(self) -> dict:
+        json_path = Path(__file__).parent.parent / 'ui' / "themes" / "mycss.json"
+        with open(json_path, 'r') as f:
+            data = json.load(f)
+        return data
+
 if __name__ == "__main__":
     # source:
     # https://www.javatpoint.com/generate-a-qr-code-using-python
     my_obj = QRHandler()
-    my_obj.set_image_colors("red", "black")
     my_obj.generate_qr("Hello world!", "photo.png")
